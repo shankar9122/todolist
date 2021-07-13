@@ -1,0 +1,83 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
+body{
+  color: #222;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f1f1f1;
+}
+
+.button{
+    color: #4e4e4e;
+    border: 1px solid #818181;
+    background: transparent;
+    padding: 6px 16px;
+    border-radius:3px;
+    vertical-align: middle;
+}
+
+button,
+.button {
+	margin-bottom: 0 !important;
+	margin-right: .5rem;
+}
+
+table{
+  width: 100%;
+}
+
+tr{
+  border-bottom: 1px solid #e6e0e0;
+}
+
+thead{
+  height: 42px;
+  border-bottom: 2px solid #e6e0e0;
+}
+
+td, th{
+  padding: 10px;
+}
+.paginationData .pagination {
+  float: right;
+}
+.paginationData .pagination li {
+  display: inline-block;
+
+  margin-right: 10px;
+}
+.paginationData .pagination li a {
+  padding: 7px 10px;
+  color: #a1b1c8;
+  border: 1px solid #a1b1c8;
+  font-size: 13px;
+  display: block;
+}
+.paginationData .pagination li.active a {
+  background: #1c293b;
+  color: #fff;
+}
+.paginationData .pagination li.next,
+.paginationData .pagination li.previous {
+  display: none;
+}
+#loading {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  margin: auto;
+  z-index: 999;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background: #e5eff1;
+  line-height: 100vh;
+}
