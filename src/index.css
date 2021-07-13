@@ -36,6 +36,14 @@ tr{
   border-bottom: 1px solid #e6e0e0;
 }
 
+#txt_overflow{
+  overflow: hidden;
+    max-width: 200px;
+    width: 77px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 thead{
   height: 42px;
   border-bottom: 2px solid #e6e0e0;
@@ -45,7 +53,7 @@ td, th{
   padding: 10px;
 }
 .paginationData .pagination {
-  float: right;
+  justify-content: center;
 }
 .paginationData .pagination li {
   display: inline-block;

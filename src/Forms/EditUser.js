@@ -1,14 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
-const AddUserForm = (props) => {
+const EditUser = (props) => {
 
-    const initialFormState = {
-        id: null,
-        name: '',
-        username: ''
-    };
+    const [user, setUser] = useState(props.currentUser);
 
-    const [user, setUser] = useState(initialFormState);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -16,16 +11,18 @@ const AddUserForm = (props) => {
         setUser({
             ...user,
             [name]: value
-        });
+        })
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!user.name || !user.username) return
-        props.addUser(user);
-        setUser(initialFormState)
+        props.updateUser(user.id, user)
     };
+
+    useEffect(() => {
+       setUser(props.currentUser);
+    }, [props]);
 
     return (
         <>
@@ -38,23 +35,29 @@ const AddUserForm = (props) => {
                     value={user.name}
                     onChange={handleInputChange}
                 />
-                <label>Username</label>
+                <label>Email</label>
                 <input
                     type="text"
                     className="form-control"
-                    name="username"
-                    value={user.username}
+                    name="email"
+                    value={user.email}
                     onChange={handleInputChange}
                 />
                 <button
                     type="submit"
-                    className="btn btn-primary mt-3"
+                    className="btn btn-primary mt-3 mr-4"
                 >
-                    Add new user
+                    Update user
+                </button>
+                <button
+                    className="button muted-button mt-3"
+                    onClick={() => props.setEdit(false)}
+                >
+                    Cancel
                 </button>
             </form>
         </>
     )
 }
 
-export default AddUserForm
+export default EditUser

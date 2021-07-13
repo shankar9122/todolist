@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import UserTable from './Table/UserTable';
-import AddUserForm from './Forms/AddUserForm';
-import EditUserForm from './Forms/EditUserForm';
+import UserTable from './Table/UserData';
+import AddUser from './Forms/AddUser';
+import EditUser from './Forms/EditUser';
 import Pagination from './Table/Pagination';
 
 
@@ -21,7 +21,7 @@ const App = () => {
   const initialFormState = {
     id: null,
     name: '',
-    username: ''
+    email: ''
   };
 
 
@@ -37,7 +37,7 @@ const App = () => {
     SetCurrentUser({
       id: user.id,
       name: user.name,
-      username: user.username
+      email: user.email
     })
   };
 
@@ -74,13 +74,13 @@ const App = () => {
   return (
     <>
       <div className="container ">
-        <h1 className="mb-5">CRUD App with Hooks</h1>
+        <h1 className="mb-5">Todo list with user list form api with pagination</h1>
         <div className="row">
           <div className="col-md-6 col-sm-12">
             {edit ? (
               <div>
-                <h2>Edit user</h2>
-                <EditUserForm
+                <h4>Edit user</h4>
+                <EditUser
                   setEdit={setEdit}
                   currentUser={currentUser}
                   updateUser={updateUser}
@@ -88,15 +88,15 @@ const App = () => {
               </div>
             ) : (
                 <div>
-                  <h2>Add user</h2>
-                  <AddUserForm
+                  <h4>Add user</h4>
+                  <AddUser
                     addUser={addUser}
                   />
                 </div>
               )}
           </div>
           <div className="col-md-6 col-sm-12">
-            <h2>View users</h2>
+            <h4>View users</h4>
             <UserTable
               users={users}
               deleteUser={deleteUser}
@@ -108,7 +108,7 @@ const App = () => {
           </div>
         
         </div>
-        <div className="row">
+        <div className="row mt-5">
           <div className="col-md-12 col-sm-12">
           <Pagination/>
           </div>

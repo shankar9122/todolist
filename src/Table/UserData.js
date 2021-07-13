@@ -7,12 +7,12 @@ const UserTable = (props) => {
     
     return (
         <>
-        <h2>Todo list</h2>
-            <table>
+        <h5>Todo list</h5>
+        <table className="table table-hover">
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Username</th>
+                        <th>Email</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -21,16 +21,16 @@ const UserTable = (props) => {
                         (props.users.map((user) => (
                             <tr key={user.id}>
                                 <td>{user.name}</td>
-                                <td>{user.username}</td>
+                                <td id="txt_overflow">{user.email}</td>
                                 <td>
                                     <button
-                                        className="button muted-button"
+                                        className="button btn btn-outline-success"
                                         onClick={() => {props.editRow(user)}}
                                     >
                                         Edit
                                     </button>
                                     <button
-                                        className="button muted-button"
+                                        className="button btn btn-outline-danger"
                                         onClick={() => props.deleteUser(user.id)}
                                     >
                                         Delete
