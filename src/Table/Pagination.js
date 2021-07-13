@@ -5,7 +5,6 @@ import { getAPI } from '../Services/getAPI';
 class Pagination extends Component {
     constructor(props) {
         super(props)
-
         this.state = {
             PageNumber: 1,
             pageCount: 0,
